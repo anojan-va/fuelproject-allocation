@@ -1,0 +1,32 @@
+server:
+  port: 8192
+
+spring:
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/allocationDB?createDatabaseIfNotExist=true
+    username: root
+    password: 
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: allocation
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    properties:
+      spring:
+        json:
+          trusted:
+            packages: "*"
+          
+      
+    topic:
+      name: order-topic        
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      
+
+
