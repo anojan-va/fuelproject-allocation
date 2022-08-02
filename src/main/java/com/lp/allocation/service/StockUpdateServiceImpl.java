@@ -18,8 +18,6 @@ public class StockUpdateServiceImpl implements StockUpdateService {
 	@Autowired
 	StockRepository stockRepository;
 	
-	@Autowired
-	AllocationService allocationService;
 	
 
 	@Override
@@ -36,7 +34,6 @@ public class StockUpdateServiceImpl implements StockUpdateService {
 		
 		stockRepository.save(fuelUpdatedStock);
 		
-		allocationService.allocate(order);
 	}
 	
 

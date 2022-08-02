@@ -35,7 +35,7 @@ public class AllocationProducer {
 		
 		
 		
-		LOGGER.info(String.format("Order event => %s", event.toString()));
+		LOGGER.info(String.format("Order event => %s", event.getMessage()));
 		
 		// Create message
 		Message<OrderEvent> message = MessageBuilder

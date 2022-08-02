@@ -18,7 +18,7 @@ public class AllocationServiceImpl implements AllocationService {
 	AllocationRepository allocationRepository;
 	
 	@Override
-	public void allocate(Order order) {
+	public Allocation allocate(Order order) {
 		
 		allocation.setAllocationDate(java.time.LocalDate.now());
 		allocation.setOrderId(order.getOrderId());
@@ -28,7 +28,7 @@ public class AllocationServiceImpl implements AllocationService {
 		//Save the Allocation Details in the DB 
 		
 		
-		allocationRepository.save(allocation);
+		return allocationRepository.save(allocation);
 		
 	}
 
