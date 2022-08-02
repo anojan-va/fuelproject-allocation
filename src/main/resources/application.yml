@@ -22,7 +22,8 @@ spring:
           
       
     topic:
-      name: order-topic        
+      name: order-topic
+      name-producer: allocation-topic      
 
   jpa:
     hibernate:
