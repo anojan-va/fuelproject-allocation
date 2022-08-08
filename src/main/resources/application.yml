@@ -11,6 +11,7 @@ spring:
     consumer:
       bootstrap-servers: localhost:9092
       group-id: allocation
+      group-dispatch-id: dispatchaup
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
@@ -27,7 +28,8 @@ spring:
       
     topic:
       name: order-topic
-      name-producer: allocation-topic      
+      name-producer: allocation-topic  
+      name-dispatch: dispatch-topic  
 
   jpa:
     hibernate:

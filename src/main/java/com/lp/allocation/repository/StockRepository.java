@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import com.lp.allocation.model.FuelStock;
 
 @Repository
-public interface StockRepository extends JpaRepository<FuelStock, Integer>{
+public interface StockRepository extends JpaRepository<FuelStock, String>{
+	
+	FuelStock findByFuelId(String string);
 
 }

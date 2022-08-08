@@ -19,9 +19,14 @@ public class Allocation {
 	private int allocationId;
 	@Column(name="order_id")
 	private int orderId;
+	@Column(name="station_id")
+	private String stationId;
+	@Column(name="fuel_type")
+	private String fuelType;
 	@Column(name="allocation_date")
 	private LocalDate allocationDate;
 	@Column(name="allocation_qty")
 	private int allocationQty;
+	
 	
 }

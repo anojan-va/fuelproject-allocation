@@ -27,17 +27,17 @@ public class AllocationCheckService{
 
 	public void checkStock(OrderEvent event) {
 		
-		
-		Optional<FuelStock> fuelstockopt= stockRepository.findById(92);
+		FuelStock stock=stockRepository.findByFuelId(event.getOrder().getFuelType());
+		//Optional<FuelStock> fuelstockopt= stockRepository.findById(92);
 		//Optional<FuelStock> fuelstockopt= stockRepository.findById(event.getOrder().getFuelType());
-		if(fuelstockopt.isPresent()) {
+		if(stock!=null) {
 			
-			System.out.println(fuelstockopt.get().getUseableStock());
+			System.out.println(stock.getUseableStock());
 			
-			if(fuelstockopt.get().getUseableStock()>=event.getOrder().getQuantity()) {
+			if(stock.getUseableStock()>=event.getOrder().getQuantity()) {
 				
 				// Update the Fuel Stock
-				stockUpdateService.updateStock(event.getOrder(),fuelstockopt.get());
+				stockUpdateService.updateStock(event.getOrder(),stock);
 				
 				// Update the Allocation Table
 				Allocation allocation = allocationService.allocate(event.getOrder());
